@@ -1,0 +1,99 @@
+body {
+    min-width: 66%;
+    margin: auto;
+    text-align: center;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.form-header {
+    font-size: 18px;
+    font-family: 'Calibri', sans-serif;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #adacac;
+    margin-bottom: 5px;
+}
+
+input[type="submit"] {
+    background: #2196F3;
+    color: #ffffff;
+    padding: 6px 23px;
+    border: none;
+    border-radius: 2px;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: #1e80ce;
+}
+
+#signUpLink {
+    text-decoration: none;
+    text-align: center;
+}
+
+#homeLink {
+    margin-left: 11px;
+    text-decoration: none;
+}
+
+#signUpLink:hover,
+#homeLink:hover {
+    text-decoration: underline;
+}
+
+
+#logoutLink {
+    background: #2196F3;
+    padding: 8px 17px;
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 10px;
+    border-radius: 2px;
+}
+
+#editLink {
+    background: #2196F3;
+    padding: 8px 17px;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+#logoutLink:hover, #editLink:hover {
+    background: #1e80ce;
+}
+
+#indexMsg,
+#userMsg {
+    font-weight: bold;
+}
+
+.colorBox {
+    width: 50px;
+    height: 50px;
+    box-shadow: 1px 1px 6px #8e8e8e;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#colorText {
+    font-weight: bold;
+    font-family: 'Calibri', sans-serif;
+    font-size: 13px;
+}
+
+.formContent {
+    text-align: right;
+    display: inline-block;
+}
