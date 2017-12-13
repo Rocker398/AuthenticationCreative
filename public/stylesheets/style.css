@@ -2,10 +2,20 @@ body {
     min-width: 66%;
     margin: auto;
     text-align: center;
+    font-family: 'Calibri', sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+#profileInfo {
+    margin-top: 16px;
+}
+
+.label {
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 .form-header {
@@ -43,7 +53,6 @@ input[type="submit"]:hover {
 }
 
 #homeLink {
-    margin-left: 11px;
     text-decoration: none;
 }
 
