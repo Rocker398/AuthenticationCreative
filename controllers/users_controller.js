@@ -1,6 +1,6 @@
 var crypto = require('crypto');
 var mongoose = require('mongoose'),
-    User = mongoose.model('User');
+    User = mongoose.model('UserCreative');
 function hashPW(pwd){
   return crypto.createHash('sha256').update(pwd).
          digest('base64').toString();
@@ -13,6 +13,8 @@ exports.signup = function(req, res){
   console.log("after hashing user exports.signup");
   user.set('email', req.body.email);
   console.log("after email user exports.signup");
+  user.set('profile_pic', 'https://www.appointbetterboards.co.nz/Custom/Appoint/img/avatar-large.png');
+  console.log("after profile pic user exports.signup");
   user.save(function(err) {
     console.log("In exports.signup");
     console.log(err);
@@ -23,6 +25,7 @@ exports.signup = function(req, res){
       req.session.user = user.id;
       req.session.username = user.username;
       req.session.msg = 'Authenticated as ' + user.username;
+      req.session.profile_pic = user.profile_pic;
       res.redirect('/');
     }
   });
@@ -40,7 +43,8 @@ exports.login = function(req, res){
         req.session.user = user.id;
         req.session.username = user.username;
         req.session.msg = 'Authenticated as ' + user.username;
-        req.session.color = user.color;
+        req.session.profile_pic = user.profile_pic;
+	req.session.bio = user.bio;
         res.redirect('/');
       });
     }else{
@@ -68,13 +72,15 @@ exports.updateUser = function(req, res){
   User.findOne({ _id: req.session.user })
   .exec(function(err, user) {
     user.set('email', req.body.email);
-    user.set('color', req.body.color);
+    user.set('profile_pic', req.body.profile_pic);
+    user.set('bio', req.body.bio);
     user.save(function(err) {
       if (err){
         res.sessor.error = err;
       } else {
         req.session.msg = 'User Updated.';
-        req.session.color = req.body.color;
+        req.session.profile_pic = req.body.profile_pic;
+        req.session.bio = req.body.bio;
       }
       res.redirect('/user');
     });
